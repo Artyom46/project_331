@@ -1,0 +1,97 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% comment %} barbershop_app/templates/index.html {% endcomment %}
+
+{% block title %}Главная{% endblock %}
+
+{% block content %}
+<div class="row mt-4">
+  <div class="col-12 text-center">
+    <h1>Добро пожаловать в наш Барбершоп!</h1>
+    <p>Небольшой лендинг с информацией о барбершопе...</p>
+  </div>
+</div>
+
+<div class="row mt-4">
+  <div class="col-12 text-center">
+    <h2>Наши преимущества</h2>
+    <div class="row">
+      <div class="col-md-4">
+        <i class="bi bi-scissors"></i>
+        <h3>Качество</h3>
+        <p>Только лучшие мастера и материалы.</p>
+      </div>
+      <div class="col-md-4">
+        <i class="bi bi-clock"></i>
+        <h3>Быстрота</h3>
+        <p>Быстрая запись и минимальное ожидание.</p>
+      </div>
+      <div class="col-md-4">
+        <i class="bi bi-people"></i>
+        <h3>Комфорт</h3>
+        <p>Уютная атмосфера и дружелюбный персонал.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="row mt-4">
+  <div class="col-12 text-center">
+    <h3>Услуги:</h3>
+    <div class="row mt-4">
+      <div class="col-md-4">
+        <h4>Мужская стрижка</h4>
+      </div>
+      <div class="col-md-4">
+        <h4>Детская стрижка</h4>
+      </div>
+      <div class="col-md-4">
+        <h4>Женская стрижка</h4>
+      </div>
+    </div>
+    <div class="row mt-4">
+      <div class="col-md-4">
+        <h4>Окрашивание волос</h4>
+      </div>
+      <div class="col-md-4">
+        <h4>Оформление бороды</h4>
+      </div>
+      <div class="col-md-4">
+        <h4>Тонирование бороды</h4>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="row text-center mt-4 mb-2">
+  <h2>Примеры наших работ</h2>
+</div>
+
+<div id="carouselExampleAutoplaying" class="carousel slide w-50 ms-auto me-auto" data-bs-ride="carousel">
+  <div class="carousel-inner">
+    <div class="carousel-item active">
+      <img src="{% static 'our_job/p1.jpg' %}" class="d-block w-100" alt="...">
+    </div>
+    <div class="carousel-item">
+      <img src="{% static 'our_job/p2.jpg' %}" class="d-block w-100" alt="...">
+    </div>
+    <div class="carousel-item">
+      <img src="{% static 'our_job/p3.jpg' %}" class="d-block w-100" alt="...">
+    </div>
+    <div class="carousel-item">
+      <img src="{% static 'our_job/p4.jpg' %}" class="d-block w-100" alt="...">
+    </div>
+  </div>
+  <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleAutoplaying" data-bs-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Предыдущий</span>
+  </button>
+  <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleAutoplaying" data-bs-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Следующий</span>
+  </button>
+</div>
+
+{% endblock %}

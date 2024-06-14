@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+
+{% comment %} barbershop_app/templates/thank_you.html {% endcomment %}
+
+{% block title %}Спасибо за запись{% endblock %}
+
+{% block content %}
+  <div class="row justify-content-center">
+    <div class="col-md-8 text-center">
+      <h2>Спасибо за запись!</h2>
+      <p>Мы скоро с вами свяжемся.</p>
+      <img src="{% static 'images/thanks.jpg' %}" alt="Спасибо" class="img-fluid">
+    </div>
+  </div>
+{% endblock %}

@@ -1,0 +1,60 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% comment %} barbershop_app/templates/masters.html {% endcomment %}
+
+{% block title %}Наши мастера{% endblock %}
+
+{% block content %}
+
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="card m-3 col-md-6 col-lg-3 border border-4 border-light" data-bs-theme="dark" style="width: 18rem;">
+          <img src="{% static 'masters/master1.png' %}" class="card-img-top" alt="...">
+          <div class="card-body">
+            <h3 class="card-title text-center">Михаил</h3>
+            <h4 class="card-text text-center">Младший барбер</h4>
+              <h4 class="card-text text-center">Стрижка - от 500р</h4>
+            <div class="row justify-content-center mt-5">
+                <a href="{% url 'barbershop_app:appointment_create' %}" class="btn btn-light">Записаться</a>
+            </div>
+          </div>
+        </div>
+        <div class="card m-3 col-md-6 col-lg-3 border border-4 border-light" data-bs-theme="dark" style="width: 18rem;">
+          <img src="{% static 'masters/master2.png' %}" class="card-img-top" alt="...">
+          <div class="card-body">
+            <h3 class="card-title text-center">Алексей</h3>
+            <h4 class="card-text text-center">Барбер</h4>
+              <h4 class="card-text text-center">Стрижка - от 600р</h4>
+            <div class="row justify-content-center mt-5">
+                <a href="{% url 'barbershop_app:appointment_create' %}" class="btn btn-light">Записаться</a>
+            </div>
+          </div>
+        </div>
+        <div class="card m-3 col-md-6 col-lg-3 border border-4 border-light" data-bs-theme="dark" style="width: 18rem;">
+          <img src="{% static 'masters/master3.png' %}" class="card-img-top" alt="...">
+          <div class="card-body">
+            <h3 class="card-title text-center">Виктория</h3>
+            <h4 class="card-text text-center">Барбер</h4>
+              <h4 class="card-text text-center">Стрижка - от 600р</h4>
+            <div class="row justify-content-center mt-5">
+                <a href="{% url 'barbershop_app:appointment_create' %}" class="btn btn-light">Записаться</a>
+            </div>
+          </div>
+        </div>
+        <div class="card m-3 col-md-6 col-lg-3 border border-4 border-light" data-bs-theme="dark" style="width: 18rem;">
+          <img src="{% static 'masters/master4.png' %}" class="card-img-top" alt="...">
+          <div class="card-body">
+            <h3 class="card-title text-center">Евгений</h3>
+            <h4 class="card-text text-center">Старший барбер</h4>
+              <h4 class="card-text text-center">Стрижка - от 800р</h4>
+            <div class="row justify-content-center mt-5">
+                <a href="{% url 'barbershop_app:appointment_create' %}" class="btn btn-light">Записаться</a>
+            </div>
+          </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

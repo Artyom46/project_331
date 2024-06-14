@@ -1,0 +1,17 @@
+body {
+    color: white;
+    background-color: rgb(33, 37, 41);
+}
+
+.nav-link {
+    color: white;
+}
+
+.nav-link:hover {
+    color: white;
+    text-shadow: 0 0 12px;
+}
+
+.card-body {
+    color: white;
+}
