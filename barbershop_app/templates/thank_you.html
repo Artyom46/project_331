@@ -5,11 +5,13 @@
 {% block title %}Спасибо за запись{% endblock %}
 
 {% block content %}
-  <div class="row justify-content-center">
-    <div class="col-md-8 text-center">
+  <div class="row justify-content-center mt-4">
+    <div class="col-md-8 text-center mt-4">
       <h2>Спасибо за запись!</h2>
       <p>Мы скоро с вами свяжемся.</p>
-      <img src="{% static 'images/thanks.jpg' %}" alt="Спасибо" class="img-fluid">
     </div>
+  </div>
+  <div class="row justify-content-center mt-3 w-25 mx-auto">
+    <a href="{% url 'barbershop_app:index' %}" class="btn btn-light">На главную</a>
   </div>
 {% endblock %}

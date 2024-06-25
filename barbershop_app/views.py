@@ -37,7 +37,6 @@ def load_services(request):
     print(f"Returning services: {services_list}") # Лог возвращаемых услуг
     return JsonResponse({'services': services_list})
 
-
 # def load_services(request):
 #     master_id = request.GET.get('master_id')
 #     services = Service.objects.filter(masters__id=master_id).order_by('name')
