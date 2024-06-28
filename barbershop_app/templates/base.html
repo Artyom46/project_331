@@ -75,76 +75,51 @@
             crossorigin="anonymous">
     </script>
 
-
     <script>
-        // Функция для загрузки услуг на основе выбранного мастера
-        function loadServices() {
-            // Получаем ID выбранного мастера
-            const masterId = document.getElementById('id_master').value;
-            console.log('Selected master ID:', masterId); // Лог выбранного мастера
-
-            // Формируем URL для запроса
-            const url = "/load-services/?master_id=" + masterId;
-            console.log('Fetching services from URL:', url); // Лог URL
-
-            // Делаем запрос к серверу
-            fetch(url)
-                .then(response => {
-                    console.log('Response status:', response.status); // Лог статуса ответа
-                    return response.json();
-                })
-                .then(data => {
-                    console.log('Received data:', data); // Лог полученных данных
-
-                    // Получаем элемент выпадающего списка услуг
-                    const serviceSelect = document.getElementById('id_service');
-                    serviceSelect.innerHTML = ''; // Очищаем предыдущие опции
-
-                    // Добавляем новые опции в выпадающий список
-                    data.services.forEach(service => {
-                        const option = document.createElement('option');
-                        option.value = service.id;
-                        option.text = service.name;
-                        console.log('Adding option:', option); // Лог добавляемой опции
-                        serviceSelect.add(option);
-                    });
-                })
-                .catch(error => console.error('Error loading services:', error)); // Лог ошибок
-        }
+      function loadServices() {
+        // Получаем ID выбранного мастера
+        const masterId = document.getElementById('id_master').value;
+        // Формируем URL для запроса
+        const url = "/load-services/?master_id=" + masterId;
+        // Получаем элемент выпадающего списка услуг
+        const serviceSelect = document.getElementById('id_service');
+        // Сохраняем текущее значение выбранной услуги
+        const selectedServiceId = serviceSelect.value;
+        // Делаем запрос к серверу
+        fetch(url)
+          .then(response => {
+            if (!response.ok) {
+              throw new Error('Network response was not ok');
+            }
+            return response.json();
+          })
+          .then(data => {
+            console.log('Received data:', data); // Лог полученных данных
+            // Очищаем список услуг, кроме первого элемента (возможно, выберите другой вариант)
+            while (serviceSelect.options.length > 1) {
+              serviceSelect.remove(1);
+            }
+            if (data.services) {
+              // Добавляем новые опции в выпадающий список
+              data.services.forEach(service => {
+                console.log('Adding service:', service); // Лог добавляемых услуг
+                const option = document.createElement('option');
+                option.value = service.id;
+                option.text = service.name;
+                serviceSelect.add(option);
+              });
+              // Восстанавливаем выбранную услугу, если она существует в новом списке
+              const selectedOption = serviceSelect.querySelector(`option[value="${selectedServiceId}"]`);
+              if (selectedOption) {
+                serviceSelect.value = selectedServiceId;
+              }
+            } else {
+              console.log('No services found for the selected master.');
+            }
+          })
+          .catch(error => console.error('Error loading services:', error));
+      }
     </script>
 
-    <script>
-        function loadServices() {
-            const masterId = document.getElementById('id_master').value;
-            const url = "/load-services/?master_id=" + masterId;
-
-            fetch(url)
-                .then(response => {
-                    if (!response.ok) {
-                        throw new Error('Network response was not ok');
-                    }
-                    return response.json();
-                })
-                .then(data => {
-                    const serviceSelect = document.getElementById('id_service');
-                    serviceSelect.innerHTML = '';
-
-                    // Check if 'services' array exists in the response data
-                    if (data && Array.isArray(data)) {
-                        data.forEach(service => {
-                            const option = document.createElement('option');
-                            option.value = service.id;
-                            option.text = service.name;
-                            serviceSelect.add(option);
-                        });
-                    } else {
-                        console.log('No services found for the selected master.');
-                        // Optionally handle the case where no services are returned
-                        // Display a message or set default behavior
-                    }
-                })
-                .catch(error => console.error('Error loading services:', error));
-        }
-    </script>
   </body>
 </html>
